@@ -1,5 +1,5 @@
-var Schema = require("truffle-contract-schema");
-var expect = require("truffle-expect");
+var Schema = require("moxie-contract-schema");
+var expect = require("moxie-expect");
 var fs = require("fs-extra");
 var path = require("path");
 var async = require("async");

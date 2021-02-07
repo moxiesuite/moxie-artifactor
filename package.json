@@ -1,7 +1,8 @@
 {
-  "name": "truffle-artifactor",
+  "name": "moxie-artifactor",
+  "namespace": "moxiesuite",
   "version": "3.0.5",
-  "description": "A contract packager for Ethereum and Javascript",
+  "description": "A contract packager for Vapory and Javascript",
   "author": "Tim Coulter",
   "main": "./index.js",
   "private": false,
@@ -10,26 +11,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/trufflesuite/truffle-artifactor.git"
+    "url": "https://github.com/moxiesuite/moxie-artifactor.git"
   },
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.4.1",
-    "ganache-cli": "6.1.0-beta.4",
+    "@moxiesuite/ganache-cli": "6.1.0",
     "mocha": "^2.3.4",
     "require-nocache": "^1.0.0",
-    "solc": "0.4.8",
+    "@vapory/solc": "0.4.19-a",
     "temp": "^0.8.3",
-    "truffle-blockchain-utils": "^0.0.4",
-    "web3": "^0.20.1"
+    "moxie-blockchain-utils": "^0.0.4",
+    "@vapory/web3": "0.20.4-b"
   },
   "dependencies": {
     "async": "^1.5.2",
     "debug": "^3.1.0",
     "fs-extra": "^1.0.0",
     "lodash": "^4.11.2",
-    "truffle-contract": "^3.0.5",
-    "truffle-contract-schema": "^2.0.0",
-    "truffle-expect": "^0.0.3"
+    "moxie-contract": "^3.0.5",
+    "moxie-contract-schema": "^2.0.0",
+    "moxie-expect": "^0.0.3"
   }
 }

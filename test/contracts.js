@@ -1,14 +1,14 @@
 var assert = require("chai").assert;
 var Artifactor = require("../");
-var contract = require("truffle-contract");
-var Schema = require("truffle-contract-schema");
+var contract = require("moxie-contract");
+var Schema = require("moxie-contract-schema");
 var temp = require("temp").track();
 var path = require("path");
-var solc = require("solc");
+var solc = require("@vapory/solc");
 var fs = require("fs");
 var requireNoCache = require("require-nocache")(module);
-var TestRPC = require("ganache-cli");
-var Web3 = require("web3");
+var TestRPC = require("@moxiesuite/ganache-cli");
+var Web3 = require("@vapory/web3");
 
 describe("artifactor + require", function() {
   var Example;
@@ -67,7 +67,7 @@ describe("artifactor + require", function() {
   });
 
   before(function(done) {
-    web3.eth.getAccounts(function(err, accs) {
+    web3.vap.getAccounts(function(err, accs) {
       accounts = accs;
 
       Example.defaults({
@@ -164,17 +164,17 @@ describe("artifactor + require", function() {
     }).then(function(triggered) {
       assert(triggered == false, "Fallback should not have been triggered yet");
       return example.sendTransaction({
-        value: web3.toWei(1, "ether")
+        value: web3.toWei(1, "vapor")
       });
     }).then(function(results) {
       return new Promise(function(accept, reject) {
-        return web3.eth.getBalance(example.address, function(err, balance) {
+        return web3.vap.getBalance(example.address, function(err, balance) {
           if (err) return reject(err);
           accept(balance);
         });
       });
     }).then(function(balance) {
-      assert(balance == web3.toWei(1, "ether"));
+      assert(balance == web3.toWei(1, "vapor"));
     });
   });
 
@@ -185,16 +185,16 @@ describe("artifactor + require", function() {
       return example.fallbackTriggered();
     }).then(function(triggered) {
       assert(triggered == false, "Fallback should not have been triggered yet");
-      return example.send(web3.toWei(1, "ether"));
+      return example.send(web3.toWei(1, "vapor"));
     }).then(function(results) {
       return new Promise(function(accept, reject) {
-        return web3.eth.getBalance(example.address, function(err, balance) {
+        return web3.vap.getBalance(example.address, function(err, balance) {
           if (err) return reject(err);
           accept(balance);
         });
       });
     }).then(function(balance) {
-      assert(balance == web3.toWei(1, "ether"));
+      assert(balance == web3.toWei(1, "vapor"));
     });
   });
 

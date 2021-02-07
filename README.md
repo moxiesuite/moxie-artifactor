@@ -1,9 +1,9 @@
-# truffle-artifactor (formerly ether-pudding)
+# moxie-artifactor (formerly ether-pudding)
 
 This package saves contract artifacts into into Javascript files that can be `require`'d. i.e.,
 
 ```javascript
-var artifactor = require("truffle-artifactor");
+var artifactor = require("moxie-artifactor");
 artifactor.save({/*...*/}, "./MyContract.sol.js") // => a promise
 
 // Later...
@@ -28,7 +28,7 @@ MyContract.deployed().then(function(instance) {
 * Manages library addresses for linked libraries.
 * Manages events, making them available on a per-transaction basis (no more `event.watch()`!)
 
-The artifactor uses [truffle-contract](https://github.com/trufflesuite/truffle-contract), which provides features above and beyond `web3`:
+The artifactor uses [moxie-contract](https://github.com/moxiesuite/moxie-contract), which provides features above and beyond `web3`:
 
 * Synchronized transactions for better control flow: transactions won't be considered finished until you're guaranteed they've been mined.
 * Promises. No more callback hell. Works well with `ES6` and `async/await`.
@@ -38,17 +38,17 @@ The artifactor uses [truffle-contract](https://github.com/trufflesuite/truffle-c
 ### Install
 
 ```
-$ npm install truffle-artifactor
+$ npm install moxie-artifactor
 ```
 
 ### Example
 
-Here, we'll generate a `.sol.js` files given a JSON object like [truffle-schema](https://github.com/trufflesuite/truffle-schema). This will give us a file which we can later `require` into other projects and contexts.
+Here, we'll generate a `.sol.js` files given a JSON object like [moxie-schema](https://github.com/moxiesuite/moxie-schema). This will give us a file which we can later `require` into other projects and contexts.
 
 ```javascript
-var artifactor = require("truffle-artifactor");
+var artifactor = require("moxie-artifactor");
 
-// See truffle-schema for more info: https://github.com/trufflesuite/truffle-schema
+// See moxie-schema for more info: https://github.com/moxiesuite/moxie-schema
 var contract_data = {
   abi: ...,              // Array; required.
   unlinked_binary: "..." // String; optional.
